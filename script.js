@@ -11,7 +11,7 @@
 (function() {
     var app = {
         playerTurn: "X",
-
+        gridValues: ["","","","","","","","",""],
         init: function() {
             this.cacheDom();
             this.eventListeners();
