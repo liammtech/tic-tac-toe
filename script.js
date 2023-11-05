@@ -6,7 +6,8 @@
             this.render();
         },
         cacheDom: function() {
-
+            this.resetButton = document.querySelector("#reset-button");
+            this.gridCells = document.querySelectorAll(".grid-cell");
         },
         eventListeners: function() {
 
