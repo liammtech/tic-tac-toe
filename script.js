@@ -11,6 +11,7 @@
 (function() {
     var app = {
         playerTurn: "X",
+
         init: function() {
             this.cacheDom();
             this.eventListeners();
@@ -21,9 +22,17 @@
             this.gridCells = document.querySelectorAll(".grid-cell");
         },
         eventListeners: function() {
-
+            this.resetButton.addEventListener("click" = () => this.resetGame());
+            this.gridCells.forEach((gridCells) => {
+                gridCells.addEventListener("click", (e) =>{
+                    // code goes here
+                })
+            });
         },
         render: function() {
+
+        },        
+        addNoughtOrCross: function() {
 
         },
         checkCondition: function() {
@@ -36,7 +45,7 @@
 
         },
         resetGame: function() {
-            
+
         }
     }
     app.init();
