@@ -11,9 +11,10 @@
 (function() {
     var app = {
         gameConditions: ["x-turn","o-turn","tie","x-win","o-win"],
-        currentCondition: this.gameConditions[0],
+        currentCondition: null,
         gridValues: ["","","","","","","","",""],
         init: function() {
+            this.currentCondition = this.gameConditions[0];
             this.cacheDom();
             this.eventListeners();
             this.render();
@@ -21,6 +22,7 @@
         cacheDom: function() {
             this.resetButton = document.querySelector("#reset-button");
             this.gridCells = document.querySelectorAll(".grid-cell");
+            this.messageBox = document.querySelector("#message-box")
         },
         eventListeners: function() {
             this.resetButton.addEventListener("click", this.resetGame());
@@ -45,11 +47,13 @@
                 case "o-win":
                     return "O wins!";
             }
-        }
+        },
         render: function() {
             for (let i in this.gridCells) {
                 this.gridCells[i].textContent = this.gridValues[i];
             }
+            this.messageBox.textContent = this.message();
+
         },        
         addNoughtOrCross: function(playerTurn) {
 
