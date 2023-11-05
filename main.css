@@ -1,0 +1,35 @@
+:root {
+    --main-bg-color: rgb(244, 255, 255);
+    --main-bg-image: url(./images/noughtsandcrosses.png);
+    --main-font-family: "Helvetica";
+    --main-section-width: 30vw;
+}
+
+body {
+    background-image: var(--main-bg-image);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: var(--main-font-family);
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 1em;
+    > * {
+        margin: 0;
+    }
+}
+
+.inner-header {
+    display: flex;
+    justify-content: space-between;
+    width: var(--main-section-width);
+}
+
+.title-container {
+    > * {
+        margin: 0;
+    }
+}
