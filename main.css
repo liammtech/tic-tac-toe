@@ -53,3 +53,14 @@ main {
 .grid-cell {
     background-color: white;
 }
+
+footer {
+    position: fixed;
+    bottom: 0;
+    padding: 1em;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
