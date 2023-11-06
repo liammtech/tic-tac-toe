@@ -22,10 +22,10 @@
         cacheDom: function() {
             this.resetButton = document.querySelector("#reset-button");
             this.gridCells = document.querySelectorAll(".grid-cell");
-            this.messageBox = document.querySelector("#message-box")
+            this.messageBox = document.querySelector("#message-box");
         },
         eventListeners: function() {
-            this.resetButton.addEventListener("click", this.resetGame());
+            this.resetButton.addEventListener("click", this.resetGame.bind(this));
             this.gridCells.forEach((gridCell) => {
                 gridCell.addEventListener("click", (e) =>{
                     this.addNoughtOrCross(gridCell.id);
@@ -72,9 +72,6 @@
         checkCondition: function() {
 
         },
-        generateMessage: function() {
-
-        },
         switchPlayerTurn: function() {
             if (this.currentCondition === "x-turn") {
                 this.currentCondition = "o-turn";
@@ -83,7 +80,9 @@
             };
         },
         resetGame: function() {
-
+            this.gridValues = ["","","","","","","","",""];
+            this.currentCondition = this.gameConditions[0];
+            this.render();
         }
     }
     app.init();

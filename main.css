@@ -5,11 +5,16 @@
     --main-section-width: 30vw;
 }
 
+@font-face{
+    font-family: "Tik Tok Sans";
+    src: url("./fonts/TikTok-Sans-Bold.ttf");
+}
+
 body {
     background-image: var(--main-bg-image);
     background-repeat: no-repeat;
     background-size: cover;
-    font-family: var(--main-font-family);
+    font-family: "Tik Tok Sans";
 }
 
 header {
