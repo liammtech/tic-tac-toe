@@ -55,6 +55,9 @@
             this.messageBox.textContent = this.message();
         },        
         addNoughtOrCross: function(gridCell) {
+            if (this.gridValues[gridCell] != "") {
+                return;
+            }
             if (this.currentCondition === "tie" | 
             this.currentCondition === "x-win" | 
             this.currentCondition === "o-win" ) {
