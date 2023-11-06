@@ -53,6 +53,9 @@ main {
 
 .grid-cell {
     background-color: white;
+    font-style: bold;
+    font-size: 160px;
+    text-align: center;
 }
 
 footer {

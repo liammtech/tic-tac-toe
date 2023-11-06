@@ -26,9 +26,9 @@
         },
         eventListeners: function() {
             this.resetButton.addEventListener("click", this.resetGame());
-            this.gridCells.forEach((gridCells) => {
-                gridCells.addEventListener("click", (e) =>{
-                    this.addNoughtOrCross();
+            this.gridCells.forEach((gridCell) => {
+                gridCell.addEventListener("click", (e) =>{
+                    this.addNoughtOrCross(gridCell.id);
                     this.checkCondition();
                     this.render();
                 })
@@ -53,10 +53,18 @@
                 this.gridCells[i].textContent = this.gridValues[i];
             }
             this.messageBox.textContent = this.message();
-
         },        
-        addNoughtOrCross: function(playerTurn) {
-
+        addNoughtOrCross: function(gridCell) {
+            if (this.currentCondition === "tie" | 
+            this.currentCondition === "x-win" | 
+            this.currentCondition === "o-win" ) {
+                return;
+            } else if (this.currentCondition === "x-turn") {
+                this.gridValues[gridCell] = "X";
+            } else if (this.currentCondition === "o-turn") {
+                this.gridValues[gridCell] = "O";
+            }
+            this.switchPlayerTurn();
         },
         checkCondition: function() {
 
@@ -65,7 +73,11 @@
 
         },
         switchPlayerTurn: function() {
-
+            if (this.currentCondition === "x-turn") {
+                this.currentCondition = "o-turn";
+            } else if (this.currentCondition === "o-turn") {
+                this.currentCondition = "x-turn" 
+            };
         },
         resetGame: function() {
 
