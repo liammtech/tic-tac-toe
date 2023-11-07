@@ -10,10 +10,14 @@
     src: url("./fonts/TikTok-Sans-Bold.ttf");
 }
 
+button {
+    font-family: "Tik Tok Sans";
+}
+
 body {
     background-image: var(--main-bg-image);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 1920px auto;
     font-family: "Tik Tok Sans";
 }
 
@@ -39,6 +43,11 @@ header {
     }
 }
 
+.logo-and-title {
+    display: grid;
+    grid-template: 36px 18px / 60px 1fr ;
+}
+
 main {
     display: flex;
     align-items: center;
@@ -59,7 +68,7 @@ main {
 .grid-cell {
     background-color: white;
     font-style: bold;
-    font-size: 16px;
+    font-size: 150px;
     text-align: center;
 }
 

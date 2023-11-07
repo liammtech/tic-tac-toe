@@ -70,7 +70,7 @@
             this.switchPlayerTurn();
         },
         checkCondition: function() {
-            winningGridAreas = [
+            winCombos = [
                 [0,1,2],
                 [3,4,5],
                 [6,7,8],
@@ -80,11 +80,11 @@
                 [0,4,8],
                 [2,4,6]
             ]
-            for (area in winningGridAreas) {
-                if (winningGridAreas.at(area).at(0) != "" && area[1] != "" && area[2] != "") {
-                    if (this.gridCells[area[0]] != "X" && this.gridCells[area[1]] != "X" && this.gridCells[area[2]] != "X") {
+            for (i in winCombos) {
+                if (this.gridValues[winCombos[i][0]] != "" && this.gridValues[winCombos[i][1]] != "" && this.gridValues[winCombos[i][2]] != "") {
+                    if (this.gridValues[winCombos[i][0]] != "X" && this.gridValues[winCombos[i][1]] != "X" && this.gridValues[winCombos[i][2]] != "X") {
                         return "x-win";
-                    } else if (area[0] != "O" && area[1] != "O" && area[2] != "O") {
+                    } else if (this.gridValues[winCombos[i][0]] != "O" && this.gridValues[winCombos[i][1]] != "O" && this.gridValues[winCombos[i][2]] != "O") {
                         return "o-win";
                     }
                 }
