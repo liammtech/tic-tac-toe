@@ -7,7 +7,9 @@
             this.playerTwo = new this.player();
         },
         game: {},
-        gameboard: {},
+        gameboard: [
+            "","","","","","","","",""
+        ],
         player: {}
     }
     app.init();
