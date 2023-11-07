@@ -3,14 +3,17 @@
         init: function() {
             this.game();
             this.gameboard();
-            this.playerOne = new this.player();
-            this.playerTwo = new this.player();
+            this.playerOne = new this.player("X");
+            this.playerTwo = new this.player("Y");
         },
         game: {},
         gameboard: [
             "","","","","","","","",""
         ],
-        player: {}
+        player: function(symbol) {
+            this.symbol = symbol;
+            this.cells = [];
+        }
     }
     app.init();
 })()
