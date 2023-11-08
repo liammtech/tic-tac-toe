@@ -1,20 +1,29 @@
+const prompt = require('prompt-sync')();
+
 (function() {
     var app = {
 
         init: function() {
             this.game();
-            this.gameboard();
-            this.playerOne = new this.player("X");
-            this.playerTwo = new this.player("O");
-        },
-
-        game: function() {
-            this.startingTurn = "X";
-            
-
+            this.playerX = new this.player("X");
+            this.playerO = new this.player("O");
         },
 
         gameboard: ["","","","","","","","",""],
+
+        game: function() {
+            this.currentTurn = "X";
+            this.turnSwitcher = (function() {
+                switch(this.currentTurn) {
+                    case "X":
+                        this.playerX.takeTurn();
+                        currentTurn = "O";
+                    case "O":
+                        this.playerO.takeTurn();
+                        currentTurn = "X";
+                }
+            })()
+        },
 
         player: function(symbol) {
             this.symbol = symbol;
@@ -25,7 +34,6 @@
                 this.cells.push(choice);
             }
         }
-
     }
 
     app.init();
