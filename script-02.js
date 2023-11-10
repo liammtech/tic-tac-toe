@@ -1,3 +1,5 @@
+const prompt = require('prompt-sync')();
+
 (function() {
 
     var app = {
@@ -5,21 +7,16 @@
         init: function() {
             this.game();
             this.gameboard();
-            this.playerX = new this.player("X");
-            this.playerO = new this.player("Y");
+            this.playerOne = new this.player("X");
+            this.playerTwo = new this.player("Y");
         },
-
-        game: function() {
-            this.turn = "X";
-            this.playerChoice = null;
-        },
-
-        gameboard: ["","","","","","","","",""],
-
+        game: {},
+        gameboard: [
+            "","","","","","","","",""
+        ],
         player: function(symbol) {
             this.symbol = symbol;
             this.cells = [];
-            this.takeTurn = (playerChoice) => this.gameboard[playerChoice] = this.symbol;
         }
 
     }
