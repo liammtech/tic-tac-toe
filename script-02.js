@@ -1,5 +1,3 @@
-const prompt = require('prompt-sync')();
-
 (function() {
 
     var app = {
@@ -10,6 +8,7 @@ const prompt = require('prompt-sync')();
             this.playerOne = new this.player("X");
             this.playerTwo = new this.player("Y");
         },
+        
         game: {},
         gameboard: [
             "","","","","","","","",""
