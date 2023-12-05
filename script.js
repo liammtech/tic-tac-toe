@@ -13,6 +13,7 @@
         gameConditions: ["x-turn","o-turn","tie","x-win","o-win"],
         currentCondition: null,
         gridValues: ["","","","","","","","",""],
+        winningCombo: null,
         init: function() {
             this.currentCondition = this.gameConditions[0];
             this.cacheDom();
@@ -83,8 +84,12 @@
             for (i in winCombos) {
                 if (this.gridValues[winCombos[i][0]] != "" && this.gridValues[winCombos[i][1]] != "" && this.gridValues[winCombos[i][2]] != "") {
                     if (this.gridValues[winCombos[i][0]] === "X" && this.gridValues[winCombos[i][1]] === "X" && this.gridValues[winCombos[i][2]] === "X") {
+                        this.winningCombo = i;
+                        alert(this.winningCombo);
                         this.currentCondition = this.gameConditions[3];
                     } else if (this.gridValues[winCombos[i][0]] === "O" && this.gridValues[winCombos[i][1]] === "O" && this.gridValues[winCombos[i][2]] === "O") {
+                        this.winningCombo = i;
+                        alert(this.winningCombo);
                         this.currentCondition = this.gameConditions[4];
                     }
                 }
