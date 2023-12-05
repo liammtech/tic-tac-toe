@@ -2,7 +2,7 @@
     --main-bg-color: rgb(244, 255, 255);
     --main-bg-image: url(./images/noughtsandcrosses.png);
     --main-font-family: "Helvetica";
-    --main-section-width: 30vw;
+    --main-section-width: 576px;
 }
 
 @font-face{
