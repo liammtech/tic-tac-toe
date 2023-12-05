@@ -83,9 +83,9 @@
             for (i in winCombos) {
                 if (this.gridValues[winCombos[i][0]] != "" && this.gridValues[winCombos[i][1]] != "" && this.gridValues[winCombos[i][2]] != "") {
                     if (this.gridValues[winCombos[i][0]] === "X" && this.gridValues[winCombos[i][1]] === "X" && this.gridValues[winCombos[i][2]] === "X") {
-                        return "x-win";
+                        this.currentCondition = this.gameConditions[3];
                     } else if (this.gridValues[winCombos[i][0]] === "O" && this.gridValues[winCombos[i][1]] === "O" && this.gridValues[winCombos[i][2]] === "O") {
-                        return "o-win";
+                        this.currentCondition = this.gameConditions[4];
                     }
                 }
             }
