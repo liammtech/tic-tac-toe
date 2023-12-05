@@ -15,6 +15,7 @@ button {
 }
 
 body {
+    margin: 0;
     background-image: var(--main-bg-image);
     background-repeat: no-repeat;
     background-size: 1920px auto;
@@ -63,6 +64,7 @@ main {
     padding: 1em;
     grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
     gap: 1em;
+    z-index: -1;
 }
 
 .grid-cell {
@@ -84,4 +86,10 @@ footer {
 
 #message-box {
     padding: 1em;
+}
+
+.win-line {
+    position: absolute;
+    top: 118px;
+    z-index: 1;
 }

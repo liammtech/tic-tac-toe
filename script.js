@@ -62,7 +62,6 @@
             if (this.currentCondition === "tie" | 
             this.currentCondition === "x-win" | 
             this.currentCondition === "o-win" ) {
-                return;
             } else if (this.currentCondition === "x-turn") {
                 this.gridValues[gridCell] = "X";
             } else if (this.currentCondition === "o-turn") {
@@ -85,12 +84,14 @@
                 if (this.gridValues[winCombos[i][0]] != "" && this.gridValues[winCombos[i][1]] != "" && this.gridValues[winCombos[i][2]] != "") {
                     if (this.gridValues[winCombos[i][0]] === "X" && this.gridValues[winCombos[i][1]] === "X" && this.gridValues[winCombos[i][2]] === "X") {
                         this.winningCombo = i;
-                        alert(this.winningCombo);
                         this.currentCondition = this.gameConditions[3];
+                        this.render();
+                        this.renderWinLine();
                     } else if (this.gridValues[winCombos[i][0]] === "O" && this.gridValues[winCombos[i][1]] === "O" && this.gridValues[winCombos[i][2]] === "O") {
                         this.winningCombo = i;
-                        alert(this.winningCombo);
                         this.currentCondition = this.gameConditions[4];
+                        this.render();
+                        this.renderWinLine();
                     }
                 }
             }
@@ -101,6 +102,35 @@
             } else if (this.currentCondition === "o-turn") {
                 this.currentCondition = "x-turn" 
             };
+        },
+        renderWinLine: function() {
+            gameboard = document.querySelector("#gameboard-container");
+            switch(this.winningCombo) {
+                case "0":
+                    gameboard.innerHTML += '<svg class="win-line" xmlns="http://www.w3.org/2000/svg" width="576" height="576"><rect x="40" y="88" width="496" height="15" style="fill:red" /></svg>'
+                    break;
+                case "1":
+                    gameboard.innerHTML += '<svg class="win-line" xmlns="http://www.w3.org/2000/svg" width="576" height="576"><rect x="40" y="280" width="496" height="15" style="fill:red" /></svg>'
+                    break;
+                case "2":
+                    gameboard.innerHTML += '<svg class="win-line" xmlns="http://www.w3.org/2000/svg" width="576" height="576"><rect x="40" y="460" width="496" height="15" style="fill:red" /></svg>'
+                    break;
+                case "3":
+                    gameboard.innerHTML += '<svg class="win-line" xmlns="http://www.w3.org/2000/svg" width="576" height="576"><rect x="94" y="40" width="15" height="496" style="fill:red" /></svg>'
+                    break;
+                case "4":
+                    gameboard.innerHTML += '<svg class="win-line" xmlns="http://www.w3.org/2000/svg" width="576" height="576"><rect x="280" y="40" width="15" height="496" style="fill:red" /></svg>'
+                    break;
+                case "5":
+                    gameboard.innerHTML += '<svg class="win-line" xmlns="http://www.w3.org/2000/svg" width="576" height="576"><rect x="467" y="40" width="15" height="496" style="fill:red" /></svg>'
+                    break;
+                case "6":
+                    gameboard.innerHTML += '<svg class="win-line" xmlns="http://www.w3.org/2000/svg" width="576" height="576"><path d="M40 52 L524 536 L536 524 L52 40 Z" style="fill:red"/></svg>'
+                    break;
+                case "7":
+                    gameboard.innerHTML += '<svg class="win-line" xmlns="http://www.w3.org/2000/svg" width="576" height="576"><path d="M40 524 L524 40 L536 52 L52 536 Z" style="fill:red"/></svg>'
+                    break;    
+            }
         },
         resetGame: function() {
             this.gridValues = ["","","","","","","","",""];
