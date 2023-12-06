@@ -13,7 +13,6 @@
         gameConditions: ["x-turn","o-turn","tie","x-win","o-win"],
 
         init: function() {
-            this.currentCondition = null,
             this.gridValues = ["","","","","","","","",""],
             this.winningCombo = null,
             this.currentCondition = this.gameConditions[0];
