@@ -4,4 +4,5 @@ const gameboard = (function () {
     const placeSymbol = (symbol, place) => board[place] = symbol;
     const getBoard = () => board;
 
-});
+    return { placeSymbol, getBoard };
+})();
