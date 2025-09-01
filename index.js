@@ -6,3 +6,7 @@ const gameboard = (function () {
 
     return { placeSymbol, getBoard };
 })();
+
+const shellDisplayController = (function () {
+
+})();
