@@ -34,18 +34,34 @@ const shellDisplayController = (function () {
 })();
 
 function createPlayer (symbol) {
-    const promptTurn = prompt(`Player ${symbol}'s turn, where will you put your symbol? (Enter number): `)
-
-    return { symbol, promptTurn };
+    const getSymbol = () => symbol;
+    return { getSymbol };
 }
 
 const game = (function () {
     gameboard.resetBoard();
 
     const playerX = createPlayer("X");
-    const playerY = createPlayer("Y");
+    const playerO = createPlayer("O");
 
     gameWon = false;
-    let currentTurn = 0;
+    let currentTurn = 0; // 0 = X's turn, 1 = O's turn
+
+    function takeTurn(player) {
+        const symbol = player.getSymbol();
+        const gridPosition = prompt(`Player ${symbol}'s turn, where will you put your symbol? (Enter number): `)
+        allowedPositions = [1, 2, 3, 4, 5, 6, 7, 8, 9]; // Note: already adjusted by -1 for zero-based indexing
+
+        if (!(gridPosition in allowedPositions)) {
+            throw new Error("You must enter a number on the grid.");
+        } else {
+            gameboard.placeSymbol(symbol, gridPosition);
+            currentTurn == 0 ? currentTurn = 1 : currentTurn = 0;
+        }
+    }
+
+    while (!gameWon) {
+        currentTurn == 0 ? takeTurn(playerX) : takeTurn(playerO);
+    }
 
 })();
