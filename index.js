@@ -1,14 +1,15 @@
-const gameboard = (function () {
+const gameboard = function () {
     // Filling array with "undefined" allows Array.map() method in the display controller to substitute in spaces
     let board = new Array(9).fill(undefined); 
 
     const placeSymbol = (symbol, place) => board[place] = symbol;
     const getBoard = () => board;
+    const resetBoard = () => board = new Array(9).fill(undefined);
 
-    return { placeSymbol, getBoard };
-})();
+    return { placeSymbol, getBoard, resetBoard };
+}();
 
-const shellDisplayController = (function () {
+const shellDisplayController = function () {
     const printBoard = function () {
         const board = gameboard.getBoard()
             // Mapping in spaces stops the display from saying "undefined" everywhere
@@ -30,12 +31,13 @@ const shellDisplayController = (function () {
     };
 
     return { printBoard };
-})();
+};
 
 function createPlayer (symbol) {
     const symbol = symbol;
-
     return { symbol };
 }
 
-const game = (function () {})();
+const game = (function () {
+    gameboard.resetBoard();
+})();
