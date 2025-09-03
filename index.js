@@ -37,3 +37,5 @@ function createPlayer (symbol) {
 
     return { symbol };
 }
+
+const game = (function () {})();
