@@ -44,8 +44,12 @@ const game = (function () {
     const playerX = createPlayer("X");
     const playerO = createPlayer("O");
 
-    gameWon = false;
+    let gameWon = false;
     let currentTurn = 0; // 0 = X's turn, 1 = O's turn
+
+    function checkIfWon() {
+
+    }
 
     function takeTurn(player) {
         const symbol = player.getSymbol();
